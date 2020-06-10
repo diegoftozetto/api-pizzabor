@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/diegoftozetto/api-store.git"
+    "url": "git+https://github.com/diegoftozetto/api-pizzabor.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/diegoftozetto/api-store/issues"
+    "url": "https://github.com/diegoftozetto/api-pizzabor/issues"
   },
-  "homepage": "https://github.com/diegoftozetto/api-store#readme"
+  "homepage": "https://github.com/diegoftozetto/api-pizzabor#readme"
 }
