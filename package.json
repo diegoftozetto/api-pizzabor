@@ -1,5 +1,5 @@
 {
-  "name": "api-store",
+  "name": "api-pizzabor",
   "version": "1.0.0",
   "description": "**Instalar NodeJS**",
   "main": "app.js",
@@ -9,11 +9,12 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
-    "mongoose": "^5.9.14"
+    "mongoose": "^5.13.13"
   },
   "devDependencies": {
     "jest": "^27.4.5",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.1.6"
   },
   "scripts": {
     "test": "jest",
