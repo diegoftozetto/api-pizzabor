@@ -1,33 +1,30 @@
-require("../models/Client");
-const mongoose = require("mongoose");
-const Client = mongoose.model("clients");
+const ClientService = require('@service/ClientService');
 
 class ClientController {
   async post(req, res) {
     try {
-      const client = new Client(req.body);
-      await client.save();
-      res.status(201).send(client);
+      const clientCreated = await ClientService.createClient(req.body);
+      res.status(201).send(clientCreated);
     } catch (error) {
-      res.status(500).send(err.message);
+      res.status(500).send(error.message);
     }
   }
 
   async get(req, res) {
     try {
-      const clients = await Client.find().sort({ name: 'asc' });
-      res.status(200).send(clients);
-    } catch (err) {
-      res.status(500).send(err.message);
+      const allClients = await ClientService.listAllClients();
+      res.status(200).send(allClients);
+    } catch (error) {
+      res.status(500).send(error.message);
     }
   }
 
   async delete(req, res) {
     try {
-      await Client.deleteOne({ _id: req.params.id });
-      res.sendStatus(204);
-    } catch (err) {
-      res.status(500).send(err.message);
+      await ClientService.deleteClient(req.params.id);
+      res.status(204).send();
+    } catch (error) {
+      res.status(500).send(error.message);
     }
   }
 }

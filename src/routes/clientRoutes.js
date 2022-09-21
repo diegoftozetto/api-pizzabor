@@ -8,7 +8,7 @@ const clientJoiSchema = require("@schemas/clientJoiSchema");
 
 router.get('/', ClientController.get);
 router.post('/', celebrate(clientJoiSchema), ClientController.post);
-router.delete('/', ClientController.delete);
+router.delete('/:id', ClientController.delete);
 router.use(errors());
 
 module.exports = router;
