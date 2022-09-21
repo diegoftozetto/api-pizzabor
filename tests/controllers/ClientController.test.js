@@ -3,7 +3,7 @@ const app = require(`@src/app`);
 const mongoose = require("mongoose");
 
 beforeEach((done) => {
-  mongoose.connect("mongodb://localhost/db-store",
+  mongoose.connect("mongodb://localhost/db-pizzabor",
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => done());
 });

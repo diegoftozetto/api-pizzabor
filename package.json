@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "body-parse": "^0.1.0",
+    "celebrate": "^15.0.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -12,6 +13,7 @@
     "mongoose": "^5.13.13"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "jest": "^27.4.5",
     "nodemon": "^2.0.15",
     "supertest": "^6.1.6"
@@ -19,7 +21,7 @@
   "scripts": {
     "test": "jest",
     "start": "NODE_ENV=production node server.js",
-    "dev": "NODE_ENV=development nodemon server.js"
+    "dev": "cross-env NODE_ENV=development nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +39,7 @@
     "@config": "src/config",
     "@controller": "src/controllers",
     "@service": "src/service",
+    "@schemas": "src/schemas",
     "@env": "./"
   }
 }
