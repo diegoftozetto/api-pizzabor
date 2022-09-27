@@ -1,3 +1,6 @@
+## API-PizzaBor
+A API-PizzaBor foi desenvolvida para dar suporte ao site da pizzaria fictícia [PizzaBor](https://diegoftozetto.github.io/web-pizzabor/).
+
 ### NodeJS
 
 **Instalar NodeJS**
