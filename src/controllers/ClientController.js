@@ -1,30 +1,31 @@
+const { StatusCodes } = require('http-status-codes');
 const ClientService = require('@service/ClientService');
 
 class ClientController {
   async post(req, res) {
     try {
       const clientCreated = await ClientService.createClient(req.body);
-      res.status(201).send(clientCreated);
+      res.status(StatusCodes.CREATED).send(clientCreated);
     } catch (error) {
-      res.status(500).send(error.message);
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error.message);
     }
   }
 
   async get(req, res) {
     try {
       const allClients = await ClientService.listAllClients();
-      res.status(200).send(allClients);
+      res.status(StatusCodes.OK).send(allClients);
     } catch (error) {
-      res.status(500).send(error.message);
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error.message);
     }
   }
 
   async delete(req, res) {
     try {
       await ClientService.deleteClient(req.params.id);
-      res.status(204).send();
+      res.status(StatusCodes.NO_CONTENT).send();
     } catch (error) {
-      res.status(500).send(error.message);
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error.message);
     }
   }
 }
