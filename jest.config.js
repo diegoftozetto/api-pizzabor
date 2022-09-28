@@ -5,4 +5,6 @@ module.exports = {
     '^@controller(.*)$': '<rootDir>/src/controllers$1',
     '^@schemas(.*)$': '<rootDir>/src/schemas$1',
   },
+  collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.{js,jsx}'],
 };
