@@ -14,7 +14,7 @@ const clientJoiSchema = {
     name: Joi.string().required(),
     email: Joi.string().email().required(),
     phone: Joi.string().required(),
-    cep: Joi.string().custom(validateCep).required()
+    cep: Joi.string().length(9).custom(validateCep).required()
   })
 };
 
