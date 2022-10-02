@@ -7,7 +7,7 @@ const CepDTO = require('../dtos/CepDTO')
 class ClientService {
   async createClient(body) {
     try {
-      const data = await this.#searchViaCep(body.cep);
+      const data = await this.searchViaCep(body.cep);
 
       const client = new Client({ ...body, ...data });
       console.info('Salvando cliente no banco.', client)
@@ -18,7 +18,7 @@ class ClientService {
     }
   }
 
-  async #searchViaCep(cep) {
+  async searchViaCep(cep) {
     const url = `https://viacep.com.br/ws/${cep}/json/`;
 
     try {
