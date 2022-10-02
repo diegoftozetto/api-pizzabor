@@ -1,10 +1,10 @@
 class CepDTO {
-  cep;
-  logradouro;
-  complement;
-  bairro;
-  localidade;
-  uf;
+  cep
+  logradouro
+  complement
+  bairro
+  localidade
+  uf
 
   constructor(data) {
     this.cep = data.cep;
