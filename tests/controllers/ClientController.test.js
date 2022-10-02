@@ -3,7 +3,7 @@ const request = require('supertest');
 const app = require(`@src/app`);
 const mongoose = require('mongoose');
 const { StatusCodes } = require('http-status-codes');
-const ClientService = require('@service/ClientService');
+const ClientService = require('../../src/service/ClientService');
 
 beforeEach((done) => {
   mongoose.connect('mongodb://localhost/db-pizzabor',
