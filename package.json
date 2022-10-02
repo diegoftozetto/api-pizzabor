@@ -4,6 +4,7 @@
   "description": "**Instalar NodeJS**",
   "main": "app.js",
   "dependencies": {
+    "axios": "^0.27.2",
     "body-parse": "^0.1.0",
     "celebrate": "^15.0.1",
     "cors": "^2.8.5",
@@ -11,7 +12,8 @@
     "express": "^4.17.1",
     "http-status-codes": "^2.2.0",
     "module-alias": "^2.2.2",
-    "mongoose": "^5.13.13"
+    "mongoose": "^5.13.13",
+    "validations-br": "^1.2.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
