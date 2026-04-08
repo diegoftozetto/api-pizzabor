@@ -1,35 +1,104 @@
-## API-PizzaBor
-A API-PizzaBor foi desenvolvida para dar suporte ao site da pizzaria fictícia [PizzaBor](https://diegoftozetto.github.io/web-pizzabor/).
+# API PizzaBor
 
-### NodeJS
+API REST para gerenciamento de clientes e produtos da pizzaria fictícia [PizzaBor](https://diegoftozetto.github.io/web-pizzabor/), desenvolvida com Node.js, Express e MongoDB.
 
-**Instalar NodeJS**
+## Tecnologias
 
-https://nodejs.org/en/
+- **Node.js** com **Express**
+- **MongoDB** via **Mongoose**
+- **Joi** / **Celebrate** para validação de dados
+- **Axios** para integração com a API ViaCEP
+- **Jest** + **Supertest** para testes
+- **Nodemon** para desenvolvimento
 
-### Nodemon
+## Pré-requisitos
 
-**Instalar Nodemon**
-```sh
-$ npm install -g nodemon
-```
-### Intalações de Dependências
+- Node.js
+- MongoDB
 
-**Instalar Express**
-```sh
-$ npm install --save express
-```
+## Instalação
 
-**Instalar mongoose**
-```sh
-$ npm install --save mongoose
+```bash
+npm install
 ```
 
-**Instalar Body-Parse**
-```sh
-$ npm install --save body-parse
+Configure as variáveis de ambiente criando um arquivo `.env` na raiz do projeto:
+
+```env
+MONGO_URI=mongodb://localhost:27017/pizzabor
+PORT=3000
 ```
-**Instalar Cors**
-```sh
-$ npm install --save cors
+
+## Executando
+
+**Desenvolvimento:**
+```bash
+npm run dev
+```
+
+**Produção:**
+```bash
+npm start
+```
+
+**Testes:**
+```bash
+npm test
+```
+
+## Endpoints
+
+Base URL: `/api`
+
+### Clientes — `/api/clients`
+
+| Método | Rota               | Descrição                   |
+|--------|--------------------|-----------------------------|
+| GET    | `/api/clients`     | Lista todos os clientes     |
+| POST   | `/api/clients`     | Cadastra um novo cliente    |
+| DELETE | `/api/clients/:id` | Remove um cliente pelo ID   |
+
+**Body — POST `/api/clients`:**
+```json
+{
+  "name": "João Silva",
+  "email": "joao@email.com",
+  "phone": "11999999999",
+  "cep": "01310100"
+}
+```
+
+> O endereço (logradouro, bairro, localidade, UF) é preenchido automaticamente via [ViaCEP](https://viacep.com.br) a partir do CEP informado.
+
+### Produtos — `/api/products`
+
+| Método | Rota                | Descrição                   |
+|--------|---------------------|-----------------------------|
+| GET    | `/api/products`     | Lista todos os produtos     |
+| POST   | `/api/products`     | Cadastra um novo produto    |
+| DELETE | `/api/products/:id` | Remove um produto pelo ID   |
+
+**Body — POST `/api/products`:**
+```json
+{
+  "name": "Pizza Margherita",
+  "categorie": "Pizza",
+  "price": "45.90",
+  "description": "Molho de tomate, mussarela e manjericão",
+  "url": "https://exemplo.com/imagem.jpg"
+}
+```
+
+## Estrutura do Projeto
+
+```
+src/
+├── app.js                  # Configuração do Express
+├── config/db/              # Configuração do banco de dados
+├── controllers/            # Controladores das rotas
+├── dtos/                   # Data Transfer Objects
+├── models/                 # Schemas do Mongoose
+├── routes/                 # Definição das rotas
+├── schemas/                # Schemas de validação Joi
+└── service/                # Regras de negócio
 ```
